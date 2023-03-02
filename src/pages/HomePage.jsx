@@ -1,7 +1,10 @@
+import URLBar from "../components/url-input/URLBar";
+
 export default function HomePage() {
   return (
     <section id="home-page">
-      <h1>Home page</h1>
+      <h2>Home page</h2>
+      <URLBar />
     </section>
   );
 }

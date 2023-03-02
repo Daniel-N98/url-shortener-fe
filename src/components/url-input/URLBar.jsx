@@ -1,11 +1,10 @@
 export default function URLBar() {
   return (
     <section id="url-section">
-      <form>
-        <label htmlFor="url-input">
-          Enter URL:
-          <input type="text" required />
-        </label>
+      <form className="p-10">
+        <label htmlFor="url-input" />
+        <p>Enter URL</p>
+        <input type="text" className="rounded-md" required />
       </form>
     </section>
   );
