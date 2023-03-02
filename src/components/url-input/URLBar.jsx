@@ -12,10 +12,10 @@ export default function URLBar() {
     <section id="url-section">
       <form className="pt-10" onSubmit={(e) => submitURL(e)}>
         <label htmlFor="url-input" />
-        <p>Enter URL</p>
+        <p className="text-white mb-6">Enter URL</p>
         <input
           type="text"
-          className="rounded-md w-4/5"
+          className="rounded-md w-4/5 text-center"
           required
           onChange={(e) => setInputURL(e.target.value)}
         />
