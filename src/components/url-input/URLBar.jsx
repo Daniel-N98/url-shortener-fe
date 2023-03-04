@@ -13,6 +13,7 @@ export default function URLBar() {
 
   const submitURL = async (e) => {
     e.preventDefault();
+    if (inputURL.length < 1) return;
     try {
       const { data } = await BASE_URL.post(
         "/url",
@@ -32,18 +33,17 @@ export default function URLBar() {
     <section id="url-section">
       <form className="pt-10" onSubmit={(e) => submitURL(e)}>
         <label htmlFor="url-input" />
-        <p className="text-white mb-6">Enter URL</p>
+        <p className="text-white">Enter URL</p>
         <input
           id="url-input"
           type="text"
           className="rounded-md border-black border-2 w-4/5 text-center h-8"
-          required
           value={inputURL}
           onChange={(e) => setInputURL(e.target.value)}
         />
         <button
           type="submit"
-          className="h-9 inline m-auto mt-6 p-1 bg-white w-1/4 rounded-md font-bold border-black border-2 hover:bg-slate-200 active:bg-slate-400 active:text-white transition-all ml-5"
+          className="inline h-9 w-1/4 m-auto mt-6 ml-5 p-1 bg-white rounded-md font-bold border-black border-2 hover:bg-slate-200 active:bg-slate-400 active:text-white transition-all"
         >
           Submit
         </button>
