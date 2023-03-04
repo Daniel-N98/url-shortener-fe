@@ -3,7 +3,7 @@ import axios from "axios";
 import URLOutput from "./URLOutput";
 import "./urlBar.css";
 
-const BASE_URL = axios.create({
+export const BASE_URL = axios.create({
   baseURL: "https://url-shortener-be-production-c51f.up.railway.app",
 });
 
