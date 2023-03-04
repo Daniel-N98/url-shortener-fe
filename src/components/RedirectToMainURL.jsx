@@ -7,7 +7,7 @@ export default function RedirectToMainURL() {
 
   async function fetchURL() {
     try {
-      const { data } = await BASE_URL.get(`/url/:${shortened_url}`);
+      const { data } = await BASE_URL.get(`/url/${shortened_url}`);
       window.location.href = data.URL;
     } catch (error) {
       console.error(error);
