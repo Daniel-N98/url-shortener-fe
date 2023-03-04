@@ -18,3 +18,13 @@
   }
 
 }
+
+@media only screen and (max-width: 800px) {
+  #url-input {
+    margin-top: 15px;
+  }
+  #url-section button {
+    margin-left: 0;
+  }
+
+}

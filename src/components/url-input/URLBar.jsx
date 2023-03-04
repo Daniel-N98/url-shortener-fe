@@ -36,12 +36,15 @@ export default function URLBar() {
         <input
           id="url-input"
           type="text"
-          className="rounded-md w-4/5 text-center"
+          className="rounded-md border-black border-2 w-4/5 text-center h-8"
           required
           value={inputURL}
           onChange={(e) => setInputURL(e.target.value)}
         />
-        <button type="submit" className="block m-auto mt-6 p-1 bg-white w-1/4">
+        <button
+          type="submit"
+          className="h-9 inline m-auto mt-6 p-1 bg-white w-1/4 rounded-md font-bold border-black border-2 hover:bg-slate-200 active:bg-slate-400 active:text-white transition-all ml-5"
+        >
           Submit
         </button>
       </form>
