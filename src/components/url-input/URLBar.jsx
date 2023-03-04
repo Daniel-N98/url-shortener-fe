@@ -1,11 +1,27 @@
 import { useState } from "react";
+import axios from "axios";
+
+const BASE_URL = axios.create({
+  baseURL: "https://url-shortener-be-production-c51f.up.railway.app",
+});
 
 export default function URLBar() {
   const [inputURL, setInputURL] = useState("");
 
-  const submitURL = (e) => {
+  const submitURL = async (e) => {
     e.preventDefault();
-    console.log(inputURL);
+    try {
+      const { data } = await BASE_URL.post(
+        "/url",
+        { URL: inputURL },
+        {
+          headers: { "Content-Type": "application/json;charset=UTF-8" },
+        }
+      );
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
