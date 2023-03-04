@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import URLOutput from "./URLOutput";
+import "./urlBar.css";
 
 const BASE_URL = axios.create({
   baseURL: "https://url-shortener-be-production-c51f.up.railway.app",
@@ -33,6 +34,7 @@ export default function URLBar() {
         <label htmlFor="url-input" />
         <p className="text-white mb-6">Enter URL</p>
         <input
+          id="url-input"
           type="text"
           className="rounded-md w-4/5 text-center"
           required
