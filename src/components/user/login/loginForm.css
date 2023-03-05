@@ -1,0 +1,25 @@
+@media only screen and (min-width: 1275px) {
+  #login-form input {
+    max-width: 30%;
+  }
+
+  #url-section button {
+    max-width: 10%;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1275px) {
+  #login-form input {
+    max-width: 40%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #url-input {
+    margin-top: 15px;
+  }
+  #url-section button {
+    margin-left: 0;
+  }
+
+}
