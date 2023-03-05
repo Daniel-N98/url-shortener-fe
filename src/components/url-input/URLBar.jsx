@@ -27,9 +27,10 @@ export default function URLBar() {
         }
       );
       setInputURL("");
+      setErrors("");
       setResultURL(data.SHORT_URL);
     } catch (error) {
-      return setErrors(["Invalid URL"]);
+      return setErrors([error.message]);
     }
   };
 
