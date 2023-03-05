@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import URLOutput from "./URLOutput";
 import "./urlBar.css";
+import ErrorBox from "../error/ErrorBox";
 
 export const BASE_URL = axios.create({
   baseURL: "https://url-shortener-be-production-c51f.up.railway.app",
@@ -10,10 +11,13 @@ export const BASE_URL = axios.create({
 export default function URLBar() {
   const [inputURL, setInputURL] = useState("");
   const [resultURL, setResultURL] = useState();
+  const [errors, setErrors] = useState();
 
   const submitURL = async (e) => {
     e.preventDefault();
-    if (inputURL.length < 1) return;
+    if (inputURL.length < 1) {
+      setErrors(["Enter a URL"]);
+    }
     try {
       const { data } = await BASE_URL.post(
         "/url",
@@ -25,15 +29,16 @@ export default function URLBar() {
       setInputURL("");
       setResultURL(data.SHORT_URL);
     } catch (error) {
-      console.error(error);
+      setErrors(["Invalid URL"]);
     }
   };
 
   return (
     <section id="url-section">
-      <form className="pt-10" onSubmit={(e) => submitURL(e)}>
+      <form className="pt-5" onSubmit={(e) => submitURL(e)}>
         <label htmlFor="url-input" />
         <p className="text-white">Enter URL</p>
+        {errors ? <ErrorBox errors={errors} /> : ""}
         <input
           id="url-input"
           type="text"
