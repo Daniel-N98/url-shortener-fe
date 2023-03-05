@@ -1,8 +1,8 @@
-import { useState } from "react";
-import axios from "axios";
-import URLOutput from "./URLOutput";
 import "./urlBar.css";
-import ErrorBox from "../error/ErrorBox";
+import axios from "axios";
+import { useState } from "react";
+import ErrorBox from "../error/ErrorBox.jsx";
+import URLOutput from "./urlOutput/URLOutput.jsx";
 
 export const BASE_URL = axios.create({
   baseURL: "https://url-shortener-be-production-c51f.up.railway.app",
