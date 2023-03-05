@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerUser } from "../../../firebase/firebase.auth";
 import ErrorBox from "../../error/ErrorBox";
 import "../login/loginForm.css";
 
@@ -7,9 +8,19 @@ const INPUT_CLASSES = "block m-auto rounded-md w-4/5 p-1 mt-2 mb-2 text-center";
 export default function RegisterForm() {
   const [errors, setErrors] = useState([]);
 
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
     if (!validateForm(e.target)) return;
+
+    const { EMAIL, PASSWORD } = e.target;
+    if (
+      await registerUser(
+        { EMAIL: EMAIL.value, PASSWORD: PASSWORD.value },
+        setErrors
+      )
+    ) {
+      alert("Success!");
+    }
   }
 
   function validateForm(target) {
