@@ -31,7 +31,7 @@ export default function URLBar() {
       setResultURL(data.SHORT_URL);
     } catch (error) {
       console.log(error);
-      return setErrors([error.message]);
+      return setErrors([error.response.data.message]);
     }
   };
 
