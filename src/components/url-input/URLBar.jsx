@@ -16,7 +16,7 @@ export default function URLBar() {
   const submitURL = async (e) => {
     e.preventDefault();
     if (inputURL.length < 1) {
-      setErrors(["Enter a URL"]);
+      return setErrors(["Enter a URL"]);
     }
     try {
       const { data } = await BASE_URL.post(
@@ -29,7 +29,7 @@ export default function URLBar() {
       setInputURL("");
       setResultURL(data.SHORT_URL);
     } catch (error) {
-      setErrors(["Invalid URL"]);
+      return setErrors(["Invalid URL"]);
     }
   };
 
