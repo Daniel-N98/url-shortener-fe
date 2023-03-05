@@ -30,7 +30,6 @@ export default function URLBar() {
       setErrors("");
       setResultURL(data.SHORT_URL);
     } catch (error) {
-      console.log(error);
       return setErrors([error.response.data.message]);
     }
   };
