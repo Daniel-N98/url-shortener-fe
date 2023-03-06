@@ -1,7 +1,8 @@
 import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase";
 
 export default function AccountPage() {
-  const [user, loading] = useAuthState();
+  const [user, loading] = useAuthState(auth);
 
   if (loading) return <h2>Loading...</h2>;
 
