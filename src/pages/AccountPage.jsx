@@ -1,4 +1,3 @@
-import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function AccountPage() {
