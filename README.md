@@ -1,4 +1,4 @@
-### This project was created to enhance my skills as a full stack developer, and can be viewed here [https://incomparable-seahorse-f9d25e.netlify.app/].
+### This project was created to enhance my skills as a full stack developer, and can be viewed here [https://urlshrtr.netlify.app/home].
 
 # URL Shortener
 
