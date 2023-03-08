@@ -12,6 +12,7 @@ function App() {
       <h1 className="text-white font-bold">URL Shortener</h1>
       <NavBar />
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/:shortened_url" element={<RedirectToMainURL />} />
