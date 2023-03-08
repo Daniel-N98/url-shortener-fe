@@ -6,7 +6,6 @@ import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
 
 function App() {
-  console.log(process.env.FIREBASE_API_KEY);
   return (
     <div className="App bg-gray-600 p-6 h-screen">
       <h1 className="text-white font-bold">URL Shortener</h1>
