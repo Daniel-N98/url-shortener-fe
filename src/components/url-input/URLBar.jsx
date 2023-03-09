@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import ErrorBox from "../error/ErrorBox.jsx";
 import URLOutput from "./urlOutput/URLOutput.jsx";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/firebase";
 
 export const BASE_URL = axios.create({
   baseURL: "https://url-shortener-be-production-c51f.up.railway.app",
@@ -12,6 +14,7 @@ export default function URLBar() {
   const [inputURL, setInputURL] = useState("");
   const [resultURL, setResultURL] = useState();
   const [errors, setErrors] = useState();
+  const [user, loading] = useAuthState(auth);
 
   const submitURL = async (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ export default function URLBar() {
     try {
       const { data } = await BASE_URL.post(
         "/url",
-        { URL: inputURL },
+        { URL: inputURL, USER_ID: user?.uid || null },
         {
           headers: { "Content-Type": "application/json;charset=UTF-8" },
         }
@@ -33,6 +36,8 @@ export default function URLBar() {
       return setErrors([error.response.data.message]);
     }
   };
+
+  if (loading) return <h2>Loading...</h2>;
 
   return (
     <section id="url-section">
