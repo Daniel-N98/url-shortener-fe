@@ -24,7 +24,11 @@ export default function PreviousURLs() {
   return (
     <section id="previous-urls">
       {userUrls?.map((userUrl) => {
-        return <p>{userUrl.SHORT_URL}</p>;
+        return (
+          <a href={userUrl.URL}>
+            https://urlshrtr.netlify.app/${userUrl.SHORT_URL}
+          </a>
+        );
       })}
     </section>
   );
