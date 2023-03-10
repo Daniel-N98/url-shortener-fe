@@ -27,9 +27,12 @@ export default function PreviousURLs() {
       <div className="m-3">
         {userUrls?.map((userUrl) => {
           return (
-            <a href={userUrl.URL} className="block text-white">
-              https://urlshrtr.netlify.app/{userUrl.SHORT_URL}
-            </a>
+            <div>
+              <a href={userUrl.URL} className="block text-white">
+                https://urlshrtr.netlify.app/{userUrl.SHORT_URL}
+              </a>
+              <p className="pl-3">Visits: {userUrl.visitors}</p>
+            </div>
           );
         })}
       </div>
