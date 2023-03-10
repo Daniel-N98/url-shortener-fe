@@ -9,14 +9,18 @@ export default function PreviousURLs() {
 
   useEffect(() => {
     async function retrieveURLs() {
-      const result = await BASE_URL.get(
-        "/url/user",
-        { USER_UID: user.uid },
-        {
-          headers: { "Content-Type": "application/json;charset=UTF-8" },
-        }
-      );
-      setUserUrls(result.USER_URLS);
+      try {
+        const { data } = await BASE_URL.get(
+          "/url/user",
+          { USER_UID: user?.uid },
+          {
+            headers: { "Content-Type": "application/json;charset=UTF-8" },
+          }
+        );
+        setUserUrls(data.USER_URLS);
+      } catch (error) {
+        console.error(error);
+      }
     }
     retrieveURLs();
   });
