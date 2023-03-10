@@ -2,6 +2,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import LoginForm from "../components/user/login/LoginForm";
 import { signOut } from "firebase/auth";
+import PreviousURLs from "../components/user/PreviousURLs/PreviousURLs";
 
 export default function AccountPage() {
   const [user, loading] = useAuthState(auth);
@@ -22,6 +23,7 @@ export default function AccountPage() {
           >
             Sign out
           </button>
+          <PreviousURLs />
         </section>
       ) : (
         <section id="register-login-buttons">
