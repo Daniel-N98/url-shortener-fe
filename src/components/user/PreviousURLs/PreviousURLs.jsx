@@ -17,7 +17,7 @@ export default function PreviousURLs() {
       }
     }
     retrieveURLs();
-  });
+  }, [user]);
 
   if (loading) return <h2>Loading...</h2>;
 
