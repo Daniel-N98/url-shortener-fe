@@ -12,7 +12,7 @@ export default function PreviousURLs() {
       try {
         const { data } = await BASE_URL.get(
           "/url/user",
-          { USER_UID: user?.uid },
+          { params: { USER_UID: user?.uid } },
           {
             headers: { "Content-Type": "application/json;charset=UTF-8" },
           }
