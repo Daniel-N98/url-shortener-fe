@@ -23,15 +23,18 @@ export default function PreviousURLs() {
 
   return (
     <section id="previous-urls">
-      <h2>Your recent links</h2>
-      <div className="m-3">
+      <h2 className="text-white">Your recent links</h2>
+      <div className="mt-5">
         {userUrls?.map((userUrl) => {
           return (
-            <div>
-              <a href={userUrl.URL} className="block text-white">
-                https://urlshrtr.netlify.app/{userUrl.SHORT_URL}
-              </a>
-              <p className="pl-3">Visits: {userUrl.visitors}</p>
+            <div
+              key={userUrl.SHORT_URL}
+              className="bg-slate-500 rounded-md w-5/6 p-3 mb-10 mx-auto max-w-md"
+            >
+              <div className="text-blue-700 bg-slate-400 rounded-md w-48 m-auto p-1 text-md underline overflow-hidden hover:text-blue-500">
+                <a href={userUrl.URL}>{userUrl.SHORT_URL}</a>
+              </div>
+              <p>Visits: {userUrl.visitors}</p>
             </div>
           );
         })}
