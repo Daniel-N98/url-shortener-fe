@@ -6,7 +6,7 @@ export default function NavBar() {
   return (
     <section id="nav-bar-section">
       <nav>
-        <ul className="w-2/3 m-auto mb-20 flex justify-center gap-6">
+        <ul className="w-2/3 m-auto mb-8 flex justify-center gap-6">
           <Link to="/home" className={LINK_CLASSES}>
             Home
           </Link>
