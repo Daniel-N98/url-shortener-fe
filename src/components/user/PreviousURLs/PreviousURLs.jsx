@@ -19,6 +19,16 @@ export default function PreviousURLs() {
     retrieveURLs();
   }, [user]);
 
+  const handleURLDelete = async (userUrlObject) => {
+    const { id } = userUrlObject;
+    try {
+      setUserUrls((current) => current.filter((url) => url.id !== id));
+      await BASE_URL.delete(`/url/${id}`);
+    } catch (error) {
+      setUserUrls((current) => [userUrlObject, ...current]);
+    }
+  };
+
   if (loading) return <h2>Loading...</h2>;
 
   return (
@@ -35,6 +45,9 @@ export default function PreviousURLs() {
                 <a href={userUrl.URL}>{userUrl.SHORT_URL}</a>
               </div>
               <p>Visits: {userUrl.visitors}</p>
+              <button onClick={() => handleURLDelete(userUrl)}>
+                Delete link
+              </button>
             </div>
           );
         })}
